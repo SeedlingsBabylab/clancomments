@@ -4,7 +4,24 @@ This is a collection of scripts for pulling out all the comments from a collecti
 
 ## usage
 
-#### clancomments.py
+
+#### clancomments2.py
+
+```bash
+$: python clancomments2.py --dirs [list of directories with CLAN files]
+```
+
+
+```bash
+$: python clancomments2.py --files [list of CLAN files]
+```
+
+
+
+
+
+
+#### clancomments.py (OLD, USE clancomments2.py)
 
 ```bash
 $: python clancomments.py /path/to/folder  output_file.csv [--subj-files]
