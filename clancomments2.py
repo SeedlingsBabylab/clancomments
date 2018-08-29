@@ -33,17 +33,18 @@ def parse_files(files):
         if file.endswith(".cha"):
             cf = pc.ClanFile(file)
             comments = cf.get_user_comments()
+            print "{} -- {} comments".format(file, len(comments))
             comms.append((file, comments))
     return comms
 
 
-def output_csv(comments):
+def output_csv(comments, fname="clancomments.csv"):
     if os.path.exists("clancomments.csv"):
         exists = True
     else:
         exists = False
 
-    with open("clancomments.csv", "a") as out:
+    with open(fname, "a") as out:
         writer = csv.writer(out)
         if not exists:
             writer.writerow(["file", 'onset', 'comment'])
@@ -64,7 +65,8 @@ if __name__ == "__main__":
         output_csv([])
         comments = parse_dirs(args.dirs)
     if args.files:
-        output_csv([])
+        # output_csv([])
         comments = parse_files(args.files)
+        output_csv(comments)
 
     # output_csv(comments)
